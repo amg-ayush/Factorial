@@ -1,5 +1,5 @@
-﻿using RabbitMQ.Client.Events;
-using RabbitMQ.Client;
+﻿using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
 using System.Collections.Concurrent;
 using System.Text;
 
@@ -25,7 +25,7 @@ namespace WebApi
         {
             this.queueName = queueName;
 
-            ConnectionFactory factory = new ConnectionFactory() { HostName = "localhost" };
+            ConnectionFactory factory = new() { HostName = "localhost" };
             connection = factory.CreateConnection();
             channel = connection.CreateModel();
             consumer = new EventingBasicConsumer(channel);
